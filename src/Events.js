@@ -1,25 +1,25 @@
 import React, { Component, PropTypes } from 'react';
-import Restaurant from './Restaurant';
+import Event from './Event';
 import map from 'lodash/map';
-import './Restaurants.css';
+import './Events.css';
 
-class Restaurants extends Component {
+class Events extends Component {
   constructor(props) {
     super(props);
   }
 
   render () {
     return (
-      <section className="Restaurants">
+      <section className="Events">
       </section>
     );
   }
 }
 
-Restaurants.propTypes = {
+Events.propTypes = {
   user: PropTypes,
   restaurantsRef: PropTypes.object,
-  restaurants: PropTypes.object
+  Events: PropTypes.object
 };
 
-export default Restaurants;
+export default Events;

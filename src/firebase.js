@@ -1,13 +1,14 @@
 import firebase from 'firebase';
+import { settings } from './settings';
+console.log('settings', settings);
 
 const config = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  storageBucket: '',
-  messagingSenderId: ''
+  apiKey: settings.API_KEY,
+  authDomain: settings.AUTH_DOMAIN,
+  databaseURL: settings.DB_URL,
+  storageBucket: settings.S_BUCKET,
+  messagingSenderId: settings.MSG_SENDER_ID
 };
-
 firebase.initializeApp(config);
 
 export default firebase;

@@ -1,17 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import map from 'lodash/map';
-import './Restaurant.css';
+import './Event.css';
 
-class Restaurant extends Component {
+class Event extends Component {
   render () {
     return (
-      <article className="Restaurant">
+      <article className="Event">
       </article>
     );
   }
 }
 
-Restaurant.propTypes = {
+Event.propTypes = {
   name: PropTypes.string,
   votes: PropTypes.object,
   user: PropTypes.object,
@@ -19,4 +19,4 @@ Restaurant.propTypes = {
   handleDeselect: PropTypes.func
 };
 
-export default Restaurant;
+export default Event;

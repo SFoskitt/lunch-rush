@@ -1,11 +1,12 @@
 import firebase from 'firebase';
+import { settings } from 'settings';
 
 const config = {
-  apiKey: 'AIzaSyCwjdb6Vhsu04iONjMxCNY-Eo_aCAXoY-c',
-  authDomain: 'ask-the-audience.firebaseapp.com',
-  databaseURL: 'https://ask-the-audience.firebaseio.com',
-  storageBucket: 'ask-the-audience.appspot.com',
-  messagingSenderId: '473436394005'
+  apiKey: settings.API_KEY,
+  authDomain: settings.AUTH_DOMAIN,
+  databaseURL: settings.DB_URL,
+  storageBucket: settings.S_BUCKET,
+  messagingSenderId: settings.MSG_SENDER_ID
 };
 
 firebase.initializeApp(config);

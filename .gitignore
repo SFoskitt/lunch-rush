@@ -8,6 +8,7 @@ node_modules
 
 # production
 /build
+src/settings.js
 
 # misc
 .DS_Store

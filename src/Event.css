@@ -1,4 +1,4 @@
-.Restaurant {
+.Event {
   margin: 1em;
   min-width: 200px;
   text-align: center;
@@ -6,10 +6,10 @@
   padding: 1em;
 }
 
-.Restaurant--name {
+.Event--name {
   margin-top: 0;
 }
 
-.Restaurant--votes {
+.Event--votes {
   text-align: left;
 }

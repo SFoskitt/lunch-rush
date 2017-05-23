@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { settings } from 'settings';
+import { settings } from './settings';
 
 const config = {
   apiKey: settings.API_KEY,

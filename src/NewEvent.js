@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import './NewRestaurant.css';
+import './NewEvent.css';
 
-class NewRestaurant extends Component {
+class NewEvent extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,7 +16,7 @@ class NewRestaurant extends Component {
 
     if (!this.state.name) return false;
 
-    this.props.restaurantsRef.push({ name: this.state.name });
+    this.props.eventsRef.push({ name: this.state.name });
     this.setState({ name: '' });
   }
 
@@ -25,12 +25,12 @@ class NewRestaurant extends Component {
 
     return (
       <form
-        className="NewRestaurant"
+        className="NewEvent"
       >
         <input
           type="text"
           value={ name }
-          placeholder="Name of Fine Establishment"
+          placeholder="Name of Event"
           onChange={(event) => this.setState({ name: event.target.value })}
         />
         <button
@@ -44,8 +44,8 @@ class NewRestaurant extends Component {
   }
 }
 
-NewRestaurant.propTypes = {
-  restaurantsRef: PropTypes.object
+NewEvent.propTypes = {
+  eventsRef: PropTypes.object
 };
 
-export default NewRestaurant;
+export default NewEvent;

@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { auth, database } from './firebase';
 import CurrentUser from './CurrentUser';
 import SignIn from './SignIn';
-import NewRestaurant from './NewRestaurant';
-import Restaurants from './Restaurants';
+import NewEvent from './NewEvent';
+import Events from './Events';
 import './Application.css';
 
 class Application extends Component {
   constructor(props) {
     super(props);
-    this.restaurantsRef = null;
+    this.eventsRef = null;
     this.state = {
       user: null
     };
@@ -18,29 +18,29 @@ class Application extends Component {
   componentWillMount() {
     auth.onAuthStateChanged((user) => {
       this.setState({ user });
-      this.restaurantsRef = database.ref('restaurants');
-      this.restaurantsRef.on('value', snapshot => {
-        this.setState({ restaurants: snapshot.val() });
+      this.eventsRef = database.ref('events');
+      this.eventsRef.on('value', snapshot => {
+        this.setState({ events: snapshot.val() });
       });
     });
   }
 
   render() {
-    const { user, restaurants } = this.state;
+    const { user, events } = this.state;
 
     return (
       <div className="Application">
         <header className="Application--header">
-          <h1>Lunch Rush</h1>
+          <h1>Wander List</h1>
         </header>
         { user
           ? <div>
-              <NewRestaurant
-                restaurantsRef={this.restaurantsRef}
+              <NewEvent
+                eventsRef={this.eventsRef}
               />
               {
-                restaurants &&
-                <Restaurants restaurants={restaurants} user={user} restaurantsRef={this.restaurantsRef}/>
+                events &&
+                <Events events={events} user={user} eventsRef={this.eventsRef}/>
               }
               <CurrentUser user={user} />
             </div>

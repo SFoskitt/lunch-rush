@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import Restaurant from './Restaurant';
+import Event from './Event';
 import map from 'lodash/map';
-import './Restaurants.css';
+import './Events.css';
 
-class Restaurants extends Component {
+class Events extends Component {
   constructor(props) {
     super(props);
 
@@ -12,33 +12,33 @@ class Restaurants extends Component {
   }
 
   handleSelect(key) {
-    const { restaurantsRef, user } = this.props;
+    const { eventsRef, user } = this.props;
 
-    restaurantsRef.child(key)
+    eventsRef.child(key)
        .child('votes')
        .child(user.uid)
        .set(user.displayName);
   }
 
   handleDeselect(key) {
-    const { restaurantsRef, user } = this.props;
+    const { eventsRef, user } = this.props;
 
-    restaurantsRef.child(key)
+    eventsRef.child(key)
        .child('votes')
        .child(user.uid)
        .remove();
   }
 
   render () {
-    const { restaurants, user } = this.props;
+    const { events, user } = this.props;
 
     return (
-      <section className="Restaurants">
-        { map(restaurants, (restauarant, key) => (
-          <Restaurant
+      <section className="Events">
+        { map(events, (eventName, key) => (
+          <Event
             key={key}
             user={user}
-            {...restauarant}
+            {...eventName}
             handleSelect={() => this.handleSelect(key)}
             handleDeselect={() => this.handleDeselect(key)}
           />
@@ -48,10 +48,10 @@ class Restaurants extends Component {
   }
 }
 
-Restaurants.propTypes = {
+Events.propTypes = {
   user: PropTypes.object.isRequired,
-  restaurantsRef: PropTypes.object.isRequired,
-  restaurants: PropTypes.object
+  eventsRef: PropTypes.object.isRequired,
+  events: PropTypes.object
 };
 
-export default Restaurants;
+export default Events;

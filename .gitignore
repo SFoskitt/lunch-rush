@@ -8,7 +8,7 @@
 
 # production
 /build
-settings.js
+src/settings.js
 
 # misc
 .DS_Store
